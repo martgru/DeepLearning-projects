@@ -42,6 +42,7 @@ def pred_and_plot(model, filename, classnames):
 
 import matplotlib.image as mpimg
 import random
+import os
 
 def view_sample(target_dir, target_class):
   """ view random image from a dataset """
