@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def compare_histories(history_before, history_after, initial_epochs):
   """
     Compares two tensorflow History objects.
