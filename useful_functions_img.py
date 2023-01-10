@@ -87,6 +87,33 @@ def plot_random_sample(model, dataset, y_true, classes):
 
   # label info
   plt.xlabel("Pred: {} {:2.0f}% (True: {})".format(y_pred, 100*tf.reduce_max(y_probs), y_true), color=color)
+  
+  
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+
+def plot_pred(model, test_data, class_names):
+  """
+    data --> tf.data.Dataset object -> (image , label) tuples 
+  """
+  image_batch , label_batch = test_data.as_numpy_iterator().next() 
+  batch_prob = [model.predict(tf.expand_dims(img , axis = 0)) for img in image_batch]
+  batch_preds = [class_names[np.argmax(prob)] for prob in batch_prob]
+
+  plt.figure(figsize= (10 , 10))
+  for i in range(4):
+    ax = plt.subplot(2 , 2 , i + 1)
+    if class_names[np.argmax(label_batch[i])] == batch_preds[i]:
+      title_color = 'g'
+    else:
+      title_color = 'r'
+    plt.imshow(image_batch[i].astype('uint8'))
+    plt.title(f"""Original label: {class_names[np.argmax(label_batch[i])]},
+     predicted label: {batch_preds[i]}, 
+     probability: {batch_prob[i].max():.2f}""" , c = title_color)
+    plt.axis('off')
 
   
 def plot_decision_boundary(model, X, y):
