@@ -148,61 +148,66 @@ def plot_decision_boundary(model, X, y):
   plt.ylim(yy.min(), yy.max())
 
 
-
 import itertools
 from sklearn.metrics import confusion_matrix
 
 def plot_confusion_matrix(y_true, y_pred, figsize, classes=None, text_size=20):
-  """ creates a confusion matrix """
-  
+
+  # create confusion matrix
   cm = confusion_matrix(y_true, tf.round(y_pred))
   
-  # normalize the confusion matrix
+  # original confusion matrix divided by the number of samples in the corresponding class
   cm_norm = cm.astype("float")/ cm.sum(axis=1)[:, np.newaxis]
 
+  # get the number of classes
   n_classes = cm.shape[0]
 
+  # count accuracy
+  correct = sum(cm[i][i] for i in range(len(cm)))
+  acc = correct / len(y_pred)
+
+  # create subplots
   fig, ax = plt.subplots(figsize=figsize)
 
   # create a matrix plot
   cax = ax.matshow(cm, cmap=plt.cm.Blues)
   fig.colorbar(cax)
 
-  # set labels to be classes
+  # set labels for classes
   if classes:
     labels = classes
   else:
     labels= np.arange(cm.shape[0])
 
   # label the axes
-  ax.set(title="confusion matrix", 
-        xlabel="predicted_label", 
-        ylabel="true_label", 
+  ax.set(title=f"Confusion Matrix (overall accuracy:{acc*100: .1f}%)", 
+        xlabel="Predictions", 
+        ylabel="Classes", 
         xticks=np.arange(n_classes), 
         yticks=np.arange(n_classes),
         xticklabels=labels,
-        yticklabels=labels,
+        yticklabels=labels
         )
 
-  # set x -axis labels to the bottom
+  # set x-axis labels to the bottom
   ax.xaxis.set_label_position("bottom")
   ax.xaxis.tick_bottom()
 
   # set threshold for different colors
-  threshold =(cm.max()+cm.min())/2
+  threshold = np.mean(cm)
 
-  # plot the text on each cell
+  # iterate over all the elements in the confusion matrix and
+  # plot text on each cell : number of correctly classified samples and accuracy
   for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-    plt.text(i,j,f"{cm[i,j]} ({cm_norm[i,j]*100: .1f}%)",
+    # get all possible pairs of indices for the columns and rows of the confusion matrix
+    plt.text(i,j,f"""{cm[i,j]} 
+    ({cm_norm[i,j]*100: .1f}%)""",
     horizontalalignment="center",
     color= "white" if cm[i,j] > threshold else "black",
     size=text_size
     )
 
   # adjust the lable size
-  ax.yaxis.label.set_size(text_size)
-  ax.xaxis.label.set_size(text_size)
-  ax.title.set_size(text_size)
-  
-   
-  
+  ax.yaxis.label.set_size(text_size+10)
+  ax.xaxis.label.set_size(text_size+10)
+  ax.title.set_size(text_size+10)
