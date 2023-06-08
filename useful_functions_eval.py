@@ -65,3 +65,17 @@ def plot_loss_curves(history):
   plt.title('Accuracy')
   plt.xlabel('Epochs')
   plt.legend();
+  
+  
+## Evaluation function for binary-classification model
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+import pandas as pd
+
+def evaluate(y_trues, y_preds):
+  """ Function that calculates binary classification model's
+    accuracy, precision, recall and f1-scores
+  """
+  acc = accuracy_score(y_trues, y_preds)*100
+  prec, rec, f1,_ = precision_recall_fscore_support(y_true=y_trues, y_pred=y_preds, average="weighted")
+
+  return pd.DataFrame({"accuracy":acc, "precision":prec*100, "recall":rec*100,"f1":f1*100}, index=["score"])
