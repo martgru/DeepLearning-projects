@@ -79,3 +79,26 @@ def evaluate(y_trues, y_preds):
   prec, rec, f1,_ = precision_recall_fscore_support(y_true=y_trues, y_pred=y_preds, average="weighted")
 
   return pd.DataFrame({"accuracy":acc, "precision":prec*100, "recall":rec*100,"f1":f1*100}, index=["score"])
+
+
+
+
+import time
+
+def pred_timer(model, samples):
+  """
+  Measures how long does it take the model to make predictions on given samples
+  """
+
+  # get start time
+  start_time =time.perf_counter()
+
+  # make predictions
+  model.predict(samples)
+
+  # get end time
+  end_time = time.perf_counter()
+
+  tot_time = end_time - start_time
+  time_per_pred = tot_time/len(samples)
+  return tot_time, time_per_pred
