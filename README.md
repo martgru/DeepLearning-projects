@@ -1,6 +1,6 @@
 # DeepLearning-projects Repository
 
-This repository contains a collection of machine learning projects. Each project focuses on different problem domains and utilizes various techniques and models for analysis and prediction. The projects are implemented in Jupyter Notebook format (.ipynb) and organized in the `notebooks` folder. Additionally, there is a notebook `saved models` which includes some pre-trained models I created. The repository also includes some Python (.py) files that contain useful functions for model training and evaluation, plotting learning curves and preprocessing of image-files.
+This repository contains a collection of machine learning projects. Each project focuses on different problem domains and utilizes various techniques and models for analysis and prediction. The projects are implemented in Jupyter Notebook format (.ipynb) and organized in the `notebooks` folder. Additionally, there is a folder `saved models` which includes some pre-trained models I created. The repository also includes some Python (.py) files that contain useful functions for model training and evaluation, plotting learning curves and preprocessing of image-files.
 
 ## Project Descriptions
 
