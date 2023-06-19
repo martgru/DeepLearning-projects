@@ -16,7 +16,7 @@ This repository contains a collection of machine learning projects. Each project
 
    The project focuses on transfer learning using the 10% subset of the Food101 images dataset. The EfficientNet model is used, and experiments are conducted using feature extraction and fine-tuning techniques. Projects evaluate the model's performance and visualizes its most wrong predictions, providing insights into the model's strengths and weaknesses.
    
-4. **Text Binary Classification using Kaggle's Natural Language Processing with Disaster Tweets dataset**
+4. **Text Binary Classification using Kaggle's Natural Language Processing with Disaster Tweets**
 
    This project compares different model architectures for text binary classification using the Kaggle's nlp_getting_started dataset. The objective is to determine whether a tweet is related to a disaster or not. The project implements several models, including Naive Bayes, feed-forward neural network, LSTM, GRU, bidirectional-LSTM, 1D Convolutional Neural Network, and TensorFlow Hub Pretrained Feature Extractor. The performance of each model is compared to identify the most effective approach.
    
