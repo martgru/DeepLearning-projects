@@ -1,0 +1,2 @@
+model_checkpoint_path: "mixed_precision_fine_tuned_efficientnet_model_food101_early_stopping"
+all_model_checkpoint_paths: "mixed_precision_fine_tuned_efficientnet_model_food101_early_stopping"
