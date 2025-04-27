@@ -1,22 +1,33 @@
-# DeepLearning-projects Repository
+# 🚀 Deep Learning Projects
 
-This repository contains a collection of machine learning projects that are part of the Zero to Mastery TensorFlow course. Each project focuses on different problem domains and utilizes various techniques and models for analysis and prediction. The projects are implemented in Jupyter Notebook format (.ipynb) and organized in the `notebooks` folder. Additionally, there is a folder `saved models` which includes some pre-trained models I created. The repository also includes some Python (.py) files that contain useful functions for model training and evaluation, plotting learning curves and preprocessing of image-files.
+This repository is a hands-on collection of deep learning projects from the Zero to Mastery TensorFlow course. Each folder contains a Jupyter Notebook demonstrating a different problem domain and showcasing various techniques for data analysis and prediction.
 
-## Project Descriptions
+- `notebooks/`: all project notebooks (.ipynb) with code, explanations, and visualizations
 
-1. **Binary Classification using sklearn make_moons**
+- `saved_models/`: pre-trained TensorFlow models produced during the course
 
-   This project explores binary classification using the `make_moons` dataset from the sklearn library. The objective is to build a machine learning model that accurately classifies data points into two categories. 
+- `utils/`: reusable functions for model training & evaluation, plotting learning curves, and preprocessing image data
+
+---
+
+## 🔹 Project Descriptions
+
+1. **Binary Text Classification with Kaggle’s “Natural Language Processing with Disaster Tweets”**
+
+In this project, I compare multiple architectures for the binary classification task of detecting disaster-related tweets using Kaggle’s `nlp_getting_started` dataset. Implemented models include **Naive Bayes**, a **Feed-Forward Neural Network**, **LSTM**, **GRU**, **Bidirectional LSTM**, **1D Convolutional Neural Network**, and a pretrained feature extractor from TensorFlow Hub. By evaluating each model’s performance, using metrics such as accuracy, precision, recall, and F1 score; I identify the most effective approach for this disaster-tweet classification problem.
+
+2. **Transfer Learning with Feature Extraction and Fine-tuning**
+
+In this project, I examine transfer learning on a 10% subset of the `Food-101 image` dataset using the **EfficientNet** architecture. I compare two approaches: **feature extraction** with frozen convolutional layers and full-model **fine-tuning**, and evaluate each method’s performance using metrics such as accuracy and validation loss. To shed light on the model’s behavior, I also visualize the most frequently misclassified images, revealing its strengths and failure modes across various food categories.
    
-2. **Fashion MNIST Classification**
+4. **Fashion MNIST Classification**
 
-   The objective of this project is to build a machine learning model capable of accurately classifying fashion images into their respective categories. The dataset used is the Fashion MNIST dataset, which consists of grayscale images of various clothing items. The project employs deep learning techniques, specifically convolutional neural networks, to achieve high accuracy in classification.
+In this project, I develop Convolutional Neural Network models to automatically classify the 70,000 grayscale images in the `Fashion MNIST` dataset into 10 clothing categories. I implement and compare multiple CNN architectures, incorporate **data augmentation** and **regularization techniques** (dropout, batch normalization), and **tune hyperparameters** (learning rate, batch size, number of filters) to maximize generalization. Model performance is evaluated through accuracy and loss curves, confusion matrices, and classification reports.
    
-3. **Transfer Learning with Feature Extraction and Fine-tuning**
 
-   The project focuses on transfer learning using the 10% subset of the Food101 images dataset. The EfficientNet model is used, and experiments are conducted using feature extraction and fine-tuning techniques. Projects evaluate the model's performance and visualizes its most wrong predictions, providing insights into the model's strengths and weaknesses.
-   
-4. **Text Binary Classification using Kaggle's Natural Language Processing with Disaster Tweets**
+5. **Binary Classification using sklearn make_moons**
 
-   This project compares different model architectures for text binary classification using the Kaggle's nlp_getting_started dataset. The objective is to determine whether a tweet is related to a disaster or not. The project implements several models, including Naive Bayes, feed-forward neural network, LSTM, GRU, bidirectional-LSTM, 1D Convolutional Neural Network, and TensorFlow Hub Pretrained Feature Extractor. The performance of each model is compared to identify the most effective approach.
+This project explores binary classification task with the `make_moons` dataset from scikit-learn, aiming to build a model that accurately separates data points into two classes.
    
+   
+
