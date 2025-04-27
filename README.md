@@ -10,7 +10,7 @@ This repository is a hands-on collection of deep learning projects from the Zero
 
 ---
 
-## 🔹 Projects 
+## 📕 Projects 
 
 🔹 **Binary Text Classification with Kaggle’s “Natural Language Processing with Disaster Tweets” Project**
 
