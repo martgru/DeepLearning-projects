@@ -1,7 +1,15 @@
 import tensorflow as tf
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+import numpy as np
+import itertools
+from sklearn.metrics import confusion_matrix
+import random
+import os
 
 def load_and_prep_img(file_name, img_shape):
-  """reads-in an img from a file name, turns it into tensor and reshapes it to (img_shape,img_shape,color channels) """
+  """ Reads-in an img from a file name, turns it into tensor 
+  and reshapes it to (img_shape,img_shape,color channels) """
   
   # load img
   img = tf.io.read_file(file_name)
@@ -38,11 +46,6 @@ def pred_and_plot(model, filename, classnames):
   
   plt.axis(False)
   
-  
-
-import matplotlib.image as mpimg
-import random
-import os
 
 def view_sample(target_dir, target_class):
   """ view random image from a dataset """
@@ -88,11 +91,6 @@ def plot_random_sample(model, dataset, y_true, classes):
   # label info
   plt.xlabel("Pred: {} {:2.0f}% (True: {})".format(y_pred, 100*tf.reduce_max(y_probs), y_true), color=color)
   
-  
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
-import numpy as np
-import random
 
 def plot_pred(model, test_data, class_names):
   """
@@ -118,7 +116,7 @@ def plot_pred(model, test_data, class_names):
   
 def plot_decision_boundary(model, X, y):
   
-  """ Plot decision boundary """
+  """ Plots decision boundary """
 
   x_min, x_max = X[:,0].min(), X[:,0].max()+0.1
   y_min, y_max = X[:,1].min(), X[:,1].max()+0.1
@@ -147,9 +145,6 @@ def plot_decision_boundary(model, X, y):
   plt.xlim(xx.min(), xx.max())
   plt.ylim(yy.min(), yy.max())
 
-
-import itertools
-from sklearn.metrics import confusion_matrix
 
 def plot_confusion_matrix(y_true, y_pred, figsize, classes=None, text_size=20):
 

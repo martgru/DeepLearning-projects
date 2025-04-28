@@ -1,11 +1,16 @@
 import datetime
 import tensorflow as tf
+import numpy as np
+import random
+import time
+
+# Constants
+BATCH_SIZE = 1
 
 def create_tensorboard_callback(dir_name, experiment_name):
   """
   Creates a TensorBoard callback and stores log files with the filepath:
     "dir_name/experiment_name/current_datetime/"
-  Args:
     dir_name: target directory to store TensorBoard log files
     experiment_name: name of experiment directory 
   """
@@ -17,10 +22,6 @@ def create_tensorboard_callback(dir_name, experiment_name):
   return tensorboard_callback
 
 
-import numpy as np
-import random
-import time 
-
 # sigmoid function
 def sigmoid(a):
   if 0 <= a:
@@ -28,8 +29,6 @@ def sigmoid(a):
   else:
     # to avoid overflow
     return 1. - 1 / (1 + np.exp(a))
-
-BATCH_SIZE = 1
 
 # soft-max function
 def softmax(a):

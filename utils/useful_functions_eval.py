@@ -1,4 +1,7 @@
 import matplotlib.pyplot as plt
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+import pandas as pd
+import time
 
 def compare_histories(history_before, history_after, initial_epochs):
   """
@@ -68,8 +71,6 @@ def plot_loss_curves(history):
   
   
 ## Evaluation function for binary-classification model
-from sklearn.metrics import accuracy_score, precision_recall_fscore_support
-import pandas as pd
 
 def evaluate(y_trues, y_preds):
   """ Function that calculates binary classification model's
@@ -80,10 +81,6 @@ def evaluate(y_trues, y_preds):
 
   return pd.DataFrame({"accuracy":acc, "precision":prec*100, "recall":rec*100,"f1":f1*100}, index=["score"])
 
-
-
-
-import time
 
 def pred_timer(model, samples):
   """
